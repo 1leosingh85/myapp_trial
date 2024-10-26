@@ -2,12 +2,12 @@
 service: myapp
 
 # Name of the container image.
-image: leo85/myapp
+image: Pax1/myapp
 
 # Deploy to these servers.
 servers:
   web:
-    - 3.17.5.227
+    - ec2-3-17-5-227.us-east-2.compute.amazonaws.com
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -78,7 +78,11 @@ builder:
   arch: amd64
 
   # # Build image via remote server (useful for faster amd64 builds on arm64 computers)
-  # remote: ssh://docker@docker-builder-server
+ssh:
+  user: ec2-user
+  keys: 
+    - /Users/chasin01/Downloads/StepUp.pem
+ //docker@docker-builder-server
   #
   # # Pass arguments and secrets to the Docker build process
   # args:
